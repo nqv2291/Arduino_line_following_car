@@ -14,7 +14,8 @@ int sensor3 = 13;
 int temp;
 
 //LED
-int led = 9;
+int led_stop = 9;
+int led_moving = 10;
 
 void setup() {
 
@@ -30,7 +31,8 @@ void setup() {
   pinMode(motor1pin2, OUTPUT);
   pinMode(motor2pin3, OUTPUT);
   pinMode(motor2pin4, OUTPUT);
-  pinMode(led, OUTPUT);
+  pinMode(led_stop, OUTPUT);
+  pinMode(led_moving, OUTPUT);
   temp = 0;
 }
 
@@ -41,10 +43,12 @@ void loop() {
 
   //Control the LEDs
   if (temp >= 500) {
-    digitalWrite(led, HIGH);
+    digitalWrite(led_stop, HIGH);
+    digitalWrite(led_moving, LOW);
   }
   else {
-    digitalWrite(led, LOW);
+    digitalWrite(led_stop, LOW);
+    digitalWrite(led_moving, HIGH);
   }
   //Control direction of motors:
   if((digitalRead(sensor1) == LOW && digitalRead(sensor2) == LOW && digitalRead(sensor3) == LOW) || (digitalRead(sensor1) == HIGH && digitalRead(sensor2) == HIGH && digitalRead(sensor3) == HIGH)) {
