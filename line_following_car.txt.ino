@@ -9,8 +9,8 @@ int en2 = 6;
 //sensors
 int sensor_VCC = 8;
 int sensor1 = 11;
-int sensor3 = 12;
-int sensor2 = 13;
+int sensor2 = 12;
+int sensor3 = 13;
 int temp;
 
 //LED
@@ -65,7 +65,7 @@ void loop() {
       digitalWrite(motor2pin4, LOW);
     }
   }
-  else if((digitalRead(sensor1) == HIGH && digitalRead(sensor2) == HIGH) || digitalRead(sensor3) == HIGH) {
+  else if((digitalRead(sensor1) == HIGH && digitalRead(sensor3) == HIGH) || digitalRead(sensor2) == HIGH) {
     //GO STRAIGH |||||||||||||
     temp = 0;
     Serial.println("|||||");
@@ -74,7 +74,7 @@ void loop() {
     digitalWrite(motor2pin3, HIGH);
     digitalWrite(motor2pin4, LOW);
   }
-  else if(digitalRead(sensor1) == HIGH && digitalRead(sensor2) == LOW) {
+  else if(digitalRead(sensor1) == HIGH && digitalRead(sensor3) == LOW) {
     //turn LEFT <<<<<<<<<<<<<
     temp = 0;
     Serial.println("<<<<<");
@@ -83,7 +83,7 @@ void loop() {
     digitalWrite(motor2pin3, HIGH);
     digitalWrite(motor2pin4, LOW);
   }
-  else if(digitalRead(sensor1) == LOW && digitalRead(sensor2) == HIGH) {
+  else if(digitalRead(sensor1) == LOW && digitalRead(sensor3) == HIGH) {
     //turn RIGHT >>>>>>>>>>>>
     temp = 0;
     Serial.println(">>>>>");
